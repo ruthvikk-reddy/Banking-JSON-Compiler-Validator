@@ -1,0 +1,21 @@
+{
+  "application_id": "APP-2026-ERR-007",
+  "account_type": "CURRENT",
+  "ownership_type": "JOINT",
+  "initial_deposit": -500.00,
+  "primary_applicant": {
+    "customer_id": "CUS100201",
+    "full_name": "Rohan Reddy",
+    "email": "rohan.reddy.gmail.com",
+    "phone": "1234567890",
+    "date_of_birth": "2012-04-10",
+    "pan_number": "ABCDE1234"
+  },
+  "joint_applicant": null,
+  "nominee": {
+    "is_declared": true,
+    "full_name": "",
+    "relationship": "COUSIN",
+    "date_of_birth": "2028-01-01"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "customer_id": "CUS1025",
+  "full_name": "Rahul Sharma",
+  "email": "rahul@gmail.com",
+  "phone": "",
+  "date_of_birth": "2001-05-14",
+  "pan_number": "ABCDE1234F",
+  "account_number": "123456789012",
+  "ifsc_code": "SBIN0001234",
+  "account_type": "SAVINGS",
+  "initial_deposit": 25000
+}

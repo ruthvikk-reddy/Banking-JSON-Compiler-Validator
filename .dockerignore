@@ -1,0 +1,15 @@
+.git/
+.gitignore
+*.exe
+*.o
+src/*.o
+src/lex.yy.c
+src/json_parser.tab.c
+src/json_parser.tab.h
+banking_validator
+banking_validator.exe
+__pycache__/
+*.pyc
+*.log
+.vscode/
+.idea/

@@ -1,0 +1,12 @@
+{
+    "customer_id": "CUS8462",
+    "full_name": "Diya Sharma",
+    "email": "diya.sharma@example.com",
+    "phone": "+91-9123456780",
+    "date_of_birth": "2001-04-23",
+    "pan_number": "LMNOP1234Q",
+    "account_number": "672839104526",
+    "ifsc_code": "ICIC0001234",
+    "account_type": "SAVINGS",
+    "initial_deposit": 999
+}

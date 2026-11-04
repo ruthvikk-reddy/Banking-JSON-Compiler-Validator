@@ -1,0 +1,12 @@
+{
+  "customer_id": "INVALID_CUSID",
+  "full_name": "Rahul Sharma",
+  "email": "invalid-email-no-at",
+  "phone": "9876543210",
+  "date_of_birth": "1995-04-12",
+  "pan_number": "12345ABCDE",
+  "account_number": "123456789012",
+  "ifsc_code": "SBIN0001234",
+  "account_type": "SAVINGS",
+  "initial_deposit": 5000.00
+}

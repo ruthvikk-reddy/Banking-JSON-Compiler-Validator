@@ -1,0 +1,7 @@
+# Domain-Aware JSON Validation and Pattern Matching System for Banking Data
+# Python 3 Web Server & Automated Test Harness
+#
+# The application web server is built entirely with the Python Standard Library
+# (http.server, subprocess, json, urllib.parse, argparse, platform, shutil).
+# No external pip dependencies are required.
+# Compatible with Python 3.8+

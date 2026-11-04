@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Domain-Aware JSON Validation System</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏦</text></svg>">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Header -->
+    <header class="app-header">
+      <h1 class="app-title">Domain-Aware JSON Validation System</h1>
+    </header>
+
+    <!-- Main Content Grid -->
+    <main class="main-layout">
+      <!-- Left Column: Input Form & Editor -->
+      <section class="card input-section">
+        <div class="card-header">
+          <div class="card-title-group">
+            <h2 class="card-title">Banking Record Input</h2>
+          </div>
+          <!-- View Mode Toggle -->
+          <div class="mode-toggle">
+            <button type="button" id="formViewBtn" class="toggle-btn active" title="Visual Field Form">Form View</button>
+            <button type="button" id="rawJsonViewBtn" class="toggle-btn" title="Raw JSON Editor">Raw JSON</button>
+          </div>
+        </div>
+
+        <!-- 1. Form Mode -->
+        <form id="bankingForm" class="banking-form" novalidate>
+          <div class="form-grid">
+            <!-- 1. customer_id -->
+            <div class="form-group">
+              <label for="customer_id" class="field-label">
+                <span>Customer ID</span>
+                <span class="field-req">*</span>
+                <span class="field-pattern-hint">CUS followed by 4 digits</span>
+              </label>
+              <input type="text" id="customer_id" name="customer_id" class="form-control" placeholder="e.g. CUS1025" required autocomplete="off">
+            </div>
+
+            <!-- 2. full_name -->
+            <div class="form-group">
+              <label for="full_name" class="field-label">
+                <span>Full Name</span>
+                <span class="field-req">*</span>
+                <span class="field-pattern-hint">Letters, spaces only</span>
+              </label>
+              <input type="text" id="full_name" name="full_name" class="form-control" placeholder="e.g. Rahul Sharma" required autocomplete="off">
+            </div>
+
+            <!-- 3. email -->
+            <div class="form-group">
+              <label for="email" class="field-label">
+                <span>Email Address</span>
+                <span class="field-req">*</span>
+                <span class="field-pattern-hint">username@domain.tld</span>
+              </label>
+              <input type="text" id="email" name="email" class="form-control" placeholder="e.g. rahul@example.com" required autocomplete="off">
+            </div>
+
+            <!-- 4. phone -->
+            <div class="form-group">
+              <label for="phone" class="field-label">
+                <span>Phone Number</span>
+                <span class="field-req">*</span>
+                <span class="field-pattern-hint">+91-XXXXXXXXXX (10 digits)</span>
+              </label>
+              <input type="text" id="phone" name="phone" class="form-control" placeholder="e.g. +91-9876543210" required autocomplete="off">
+            </div>
+
+            <!-- 5. date_of_birth -->
+            <div class="form-group">
+              <label for="date_of_birth" class="field-label">
+                <span>Date of Birth</span>
+                <span class="field-req">*</span>
+                <span class="field-pattern-hint">YYYY-MM-DD (valid calendar)</span>
+              </label>
+              <input type="text" id="date_of_birth" name="date_of_birth" class="form-control" placeholder="YYYY-MM-DD" required autocomplete="off">
+            </div>
+
+            <!-- 6. pan_number -->
+            <div class="form-group">
+              <label for="pan_number" class="field-label">
+                <span>PAN Number</span>
+                <span class="field-req">*</span>
+                <span class="field-pattern-hint">5 letters, 4 digits, 1 letter</span>
+              </label>
+              <input type="text" id="pan_number" name="pan_number" class="form-control text-uppercase" placeholder="e.g. ABCDE1234F" required autocomplete="off">
+            </div>
+
+            <!-- 7. account_number -->
+            <div class="form-group">
+              <label for="account_number" class="field-label">
+                <span>Account Number</span>
+                <span class="field-req">*</span>
+                <span class="field-pattern-hint">9 to 18 digits</span>
+              </label>
+              <input type="text" id="account_number" name="account_number" class="form-control" placeholder="e.g. 123456789012" required autocomplete="off">
+            </div>
+
+            <!-- 8. ifsc_code -->
+            <div class="form-group">
+              <label for="ifsc_code" class="field-label">
+                <span>IFSC Code</span>
+                <span class="field-req">*</span>
+                <span class="field-pattern-hint">4 letters, 0, 6 alnum</span>
+              </label>
+              <input type="text" id="ifsc_code" name="ifsc_code" class="form-control text-uppercase" placeholder="e.g. SBIN0001234" required autocomplete="off">
+            </div>
+
+            <!-- 9. account_type -->
+            <div class="form-group">
+              <label for="account_type" class="field-label">
+                <span>Account Type</span>
+                <span class="field-req">*</span>
+                <span class="field-pattern-hint">SAVINGS, CURRENT (or custom value)</span>
+              </label>
+              <input type="text" id="account_type" name="account_type" list="accountTypeList" class="form-control text-uppercase" placeholder="e.g. SAVINGS or CURRENT" required autocomplete="off">
+              <datalist id="accountTypeList">
+                <option value="SAVINGS">
+                <option value="CURRENT">
+                <option value="GOLD">
+              </datalist>
+            </div>
+
+            <!-- 10. initial_deposit -->
+            <div class="form-group">
+              <label for="initial_deposit" class="field-label">
+                <span>Initial Deposit (₹)</span>
+                <span class="field-req">*</span>
+                <span class="field-pattern-hint">Non-negative number</span>
+              </label>
+              <input type="number" id="initial_deposit" name="initial_deposit" step="any" class="form-control" placeholder="e.g. 5000.00" required autocomplete="off">
+            </div>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" id="submitValidateBtn" class="btn btn-primary btn-lg">
+              <span class="btn-icon">⚡</span>
+              <span>Validate Banking Record</span>
+            </button>
+          </div>
+        </form>
+
+        <!-- 2. Raw JSON Mode (Toggleable) -->
+        <div id="rawJsonModeContainer" class="raw-json-container hidden">
+          <div class="editor-header">
+            <span class="editor-title">Direct JSON Input (Direct Compiler Pipe)</span>
+          </div>
+          <textarea id="rawJsonTextarea" class="code-editor" rows="18" spellcheck="false" placeholder="Enter or paste raw JSON here..."></textarea>
+          <div class="form-actions">
+            <button type="button" id="submitRawJsonBtn" class="btn btn-primary btn-lg">
+              <span class="btn-icon">⚡</span>
+              <span>Validate Raw JSON</span>
+            </button>
+            <button type="button" id="syncFormFromRawBtn" class="btn btn-secondary">Sync to Form Fields</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Right Column: Compiler Execution Results -->
+      <section class="card results-section">
+        <div class="card-header">
+          <div class="card-title-group">
+            <h2 class="card-title">Compiler Validation Results</h2>
+          </div>
+          <div id="executionTimestamp" class="text-muted text-sm">Ready</div>
+        </div>
+
+        <!-- Initial Neutral Empty State -->
+        <div id="resultsPlaceholder" class="placeholder-state">
+          <div class="placeholder-icon">📋</div>
+          <h3>Ready to validate</h3>
+          <p>Enter a banking record and click Validate Banking Record to view the compiler's results.</p>
+        </div>
+
+        <!-- Loading State -->
+        <div id="resultsLoading" class="loading-state hidden">
+          <div class="spinner"></div>
+          <h3>Executing Compiler Pipeline...</h3>
+          <p class="text-muted">Passing JSON data to <code>banking_validator</code> process via stdin...</p>
+        </div>
+
+        <!-- Active Results Display -->
+        <div id="resultsContent" class="results-content hidden">
+          <!-- Stale Result Warning Notice (Appears when inputs change after validation) -->
+          <div id="staleNotice" class="stale-notice hidden">
+            <span class="stale-icon">⚠️</span>
+            <span><strong>Inputs modified:</strong> Displayed results belong to the previous submission. Click <strong>Validate Banking Record</strong> to update.</span>
+          </div>
+
+          <!-- 1. Overall Status Banner -->
+          <div id="statusBanner" class="status-banner banner-valid">
+            <div class="banner-left">
+              <div id="statusIcon" class="status-symbol">✓</div>
+              <div class="status-text-group">
+                <div class="status-headline-row">
+                  <span id="overallStatusText" class="status-headline">VALID BANKING DATA</span>
+                  <span id="auditDecisionBadge" class="audit-badge">APPROVED FOR INGESTION</span>
+                </div>
+              </div>
+            </div>
+            <div class="banner-stats">
+              <div class="stat-pill stat-errors">
+                <span class="stat-label">Errors</span>
+                <span id="totalErrorsCount" class="stat-value">0</span>
+              </div>
+              <div class="stat-pill stat-warnings">
+                <span class="stat-label">Warnings</span>
+                <span id="totalWarningsCount" class="stat-value">0</span>
+              </div>
+              <div class="stat-pill stat-stages">
+                <span class="stat-label">Stages Passed</span>
+                <span id="stagesRatio" class="stat-value">9 / 9</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 2. Pipeline Stages Breakdown (Stages 1 to 8) -->
+          <div class="result-block">
+            <h3 class="block-title">
+              <span>Compiler Stages Breakdown (Stages 1–8)</span>
+            </h3>
+            <div class="stages-grid" id="stagesGrid">
+              <!-- Rendered via JS -->
+            </div>
+          </div>
+
+          <!-- 3. Detected Diagnostics / Errors (if any) -->
+          <div id="diagnosticsBlock" class="result-block">
+            <h3 class="block-title">
+              <span>Detected Errors &amp; Diagnostic Messages</span>
+              <span id="diagnosticsCountBadge" class="badge badge-error">0 Errors</span>
+            </h3>
+            <div id="diagnosticsList" class="diagnostics-list">
+              <!-- Rendered via JS -->
+            </div>
+          </div>
+
+          <!-- 4. Mandatory Field Outcomes -->
+          <div class="result-block">
+            <h3 class="block-title">Individual Field Validation Matrix (10 Core Fields)</h3>
+            <div class="table-responsive">
+              <table class="fields-table">
+                <thead>
+                  <tr>
+                    <th>Field Name</th>
+                    <th>Value Submitted</th>
+                    <th>Validation Status</th>
+                    <th>Rule / Reason</th>
+                  </tr>
+                </thead>
+                <tbody id="fieldsTableBody">
+                  <!-- Rendered via JS -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- 5. Collapsible Submitted JSON Panel -->
+          <div class="result-block">
+            <details class="json-details">
+              <summary class="json-details-summary">
+                <span>Submitted JSON</span>
+                <span class="text-muted text-sm">(Click to expand)</span>
+              </summary>
+              <div class="json-output-wrapper">
+                <pre id="submittedJsonOutput" class="code-block"></pre>
+              </div>
+            </details>
+          </div>
+
+          <!-- 6. Collapsible Raw Compiler Response Panel -->
+          <div class="result-block">
+            <details class="json-details">
+              <summary class="json-details-summary">
+                <span>Compiler Response (Raw JSON)</span>
+                <span class="text-muted text-sm">(Click to expand)</span>
+              </summary>
+              <div class="json-output-wrapper">
+                <pre id="rawCompilerOutput" class="code-block"></pre>
+              </div>
+            </details>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

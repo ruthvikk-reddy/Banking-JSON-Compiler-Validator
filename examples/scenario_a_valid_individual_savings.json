@@ -1,0 +1,21 @@
+{
+  "application_id": "APP-2026-IND-001",
+  "account_type": "SAVINGS",
+  "ownership_type": "INDIVIDUAL",
+  "initial_deposit": 2500.00,
+  "primary_applicant": {
+    "customer_id": "CUS100201",
+    "full_name": "Ruthvik Reddy Thummala",
+    "email": "ruthvik.reddy@gmail.com",
+    "phone": "9876543210",
+    "date_of_birth": "2000-05-15",
+    "pan_number": "ABCDE1234F"
+  },
+  "joint_applicant": null,
+  "nominee": {
+    "is_declared": true,
+    "full_name": "Ananya Reddy",
+    "relationship": "SISTER",
+    "date_of_birth": "2003-08-20"
+  }
+}

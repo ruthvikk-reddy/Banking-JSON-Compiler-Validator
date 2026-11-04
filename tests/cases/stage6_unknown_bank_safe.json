@@ -1,0 +1,12 @@
+{
+  "customer_id": "CUS1029",
+  "full_name": "Rural Cooperative Member",
+  "email": "rural@example.com",
+  "phone": "+91-9876543214",
+  "date_of_birth": "1990-11-25",
+  "pan_number": "ABCDE1234F",
+  "account_number": "987654321012",
+  "ifsc_code": "ABCD0001234",
+  "account_type": "SAVINGS",
+  "initial_deposit": 5000.00
+}

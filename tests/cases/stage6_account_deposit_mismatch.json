@@ -1,0 +1,12 @@
+{
+  "customer_id": "CUS1031",
+  "full_name": "Business Customer",
+  "email": "biz@example.com",
+  "phone": "+91-9876543216",
+  "date_of_birth": "1988-07-19",
+  "pan_number": "ABCDE1234F",
+  "account_number": "123456789012",
+  "ifsc_code": "HDFC0001234",
+  "account_type": "CURRENT",
+  "initial_deposit": 2500.00
+}

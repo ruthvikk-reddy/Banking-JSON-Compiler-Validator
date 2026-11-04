@@ -1,0 +1,12 @@
+{
+  "customer_id": "CUS1030",
+  "full_name": "Test Tester",
+  "email": "tester@example.com",
+  "phone": "+91-9876543215",
+  "date_of_birth": "1992-03-15",
+  "pan_number": "ABCDE1234F",
+  "account_number": "111111111111",
+  "ifsc_code": "SBIN0001234",
+  "account_type": "SAVINGS",
+  "initial_deposit": 5000.00
+}

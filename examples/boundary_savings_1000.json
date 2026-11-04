@@ -1,0 +1,12 @@
+{
+    "customer_id": "CUS7392",
+    "full_name": "Aarav Mehta",
+    "email": "aarav.mehta@example.com",
+    "phone": "+91-9876543210",
+    "date_of_birth": "2002-08-17",
+    "pan_number": "FGHIJ5678K",
+    "account_number": "583920174625",
+    "ifsc_code": "HDFC0001234",
+    "account_type": "SAVINGS",
+    "initial_deposit": 1000
+}

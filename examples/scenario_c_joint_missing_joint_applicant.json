@@ -1,0 +1,18 @@
+{
+  "application_id": "APP-2026-ERR-003",
+  "account_type": "SAVINGS",
+  "ownership_type": "JOINT",
+  "initial_deposit": 5000.00,
+  "primary_applicant": {
+    "customer_id": "CUS100201",
+    "full_name": "Ruthvik Reddy",
+    "email": "ruthvik.reddy@gmail.com",
+    "phone": "9876543210",
+    "date_of_birth": "1998-07-22",
+    "pan_number": "ABCDE1234F"
+  },
+  "joint_applicant": null,
+  "nominee": {
+    "is_declared": false
+  }
+}

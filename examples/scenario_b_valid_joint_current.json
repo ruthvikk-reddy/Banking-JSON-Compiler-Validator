@@ -1,0 +1,28 @@
+{
+  "application_id": "APP-2026-JNT-002",
+  "account_type": "CURRENT",
+  "ownership_type": "JOINT",
+  "initial_deposit": 15000.00,
+  "primary_applicant": {
+    "customer_id": "CUS200301",
+    "full_name": "Abhinav Sharma",
+    "email": "abhinav.sharma@corpmail.com",
+    "phone": "9845012345",
+    "date_of_birth": "1992-11-10",
+    "pan_number": "BNZPA5678K"
+  },
+  "joint_applicant": {
+    "customer_id": "CUS200302",
+    "full_name": "Vinay Karthik",
+    "email": "vinay.karthik@corpmail.com",
+    "phone": "9845098765",
+    "date_of_birth": "1994-03-25",
+    "pan_number": "CPQPK9012M"
+  },
+  "nominee": {
+    "is_declared": true,
+    "full_name": "Pooja Sharma",
+    "relationship": "SPOUSE",
+    "date_of_birth": "1995-07-14"
+  }
+}
